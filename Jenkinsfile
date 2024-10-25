@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Imprimir") {
+        stage ("Imprimir") {
             step {
                 echo 'Se realizó un cambio'
             }
