@@ -26,7 +26,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def response = httpRequest 
+                    def response = httpRequest( 
                         httpMode: 'POST', quiet: true,
                         url: "${API_BUILD_URL}",
                         customHeaders: [[name: 'Authorization', value: "Bearer ${API_KEY}"]],
@@ -37,11 +37,12 @@ pipeline {
                                 "name": "string"
                             }
                         '''
+                    )
                     echo "Response: ${response.content}"
 
                     if (response.status == 201) {
                         def jsonResponde = readJson text: response.content
-                        BUILD_CODE = jsonResponde.code
+                        env.BUILD_CODE = jsonResponde.code
                         echo "Build successful with code: ${env.BUILD_CODE}"
                     } else {
                         error "Build failed with status: ${response.status}"
@@ -52,7 +53,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def response = httpRequest 
+                    def response = httpRequest(
                         httpMode: 'POST',
                         url: "${API_DEPLOY_URL}",
                         customHeaders: [[name: 'Authorization', value: "Bearer ${API_KEY}"]],
@@ -64,6 +65,7 @@ pipeline {
                                 "strategy": "ROLLING_UPDATE" // ROLLING_UPDATE, RECREATE, GREEN.
                             }
                         '''
+                    )
                     echo "Response: ${response.content}"
                     if (response.status == 201) {
                         def jsonResponde = readJson text: response.content
