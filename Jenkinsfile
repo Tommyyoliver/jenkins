@@ -6,5 +6,10 @@ pipeline {
                 echo 'Se realizó un cambio'
             }
         }
+        stage ("Test") {
+            steps {
+                echo 'JUJU'
+            }
+        }
     }
 }
