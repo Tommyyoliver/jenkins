@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     def response = httpRequest 
-                        httpMode: 'POST',
+                        httpMode: 'POST', quiet: true,
                         url: "${API_BUILD_URL}",
                         customHeaders: [[name: 'Authorization', value: "Bearer ${API_KEY}"]],
                         requestBody: '''
