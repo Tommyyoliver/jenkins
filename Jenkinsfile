@@ -8,7 +8,12 @@ pipeline {
         }
         stage ("Test") {
             steps {
-                echo 'upaaa'
+                echo 'u'
+            }
+        }
+        stage ("Test") {
+            steps {
+                echo 'ua'
             }
         }
     }
