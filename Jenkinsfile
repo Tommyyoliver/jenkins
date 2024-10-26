@@ -4,11 +4,10 @@ pipeline {
         // Variables de entorno necesarias para el build y deploy
         GIT_REPO = 'https://repositorio.git'
         BRANCH = 'master' // la rama en la que estés trabajando
-        SAP_COMMERCE_BUILD_DIR = 'path/a/build'
 
-        // The code of the subscription associated to the builds.
+        // {subscriptionCode} El codigo de la suscripcion asociado a los build
         API_BUILD_URL = 'https://portalapi.commerce.ondemand.com/v2/subscriptions/{subscriptionCode}/builds'
-        // The code of the subscription associated to the build that you want to deploy.
+        // {subscriptionCode} El codigo de la suscripcion asociado al build que quieres hacer deploy
         API_DEPLOY_URL = 'https://portalapi.commerce.ondemand.com/v2/subscriptions/{subscriptionCode}/deployments'
         // la api key debe ser guardada en una credencial por seguridad'
         API_KEY = credentials('sap-cloud-api-key')
