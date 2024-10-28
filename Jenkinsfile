@@ -10,7 +10,7 @@ pipeline {
         // {subscriptionCode} El codigo de la suscripcion asociado al build que quieres hacer deploy
         API_DEPLOY_URL = 'https://portalapi.commerce.ondemand.com/v2/subscriptions/{subscriptionCode}/deployments'
         // la api key debe ser guardada en una credencial por seguridad'
-        API_KEY = credentials('sap-cloud-api-key')
+        // API_KEY = credentials('sap-cloud-api-key')
 
         BUILD_CODE = ''
         DEPLOY_CODE = ''
