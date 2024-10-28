@@ -17,11 +17,11 @@ pipeline {
     }
     
     stages {
-        stage('Checkout') { // se puede reemplazar configurando git en jenkins
-            // steps {
-            //     git branch: "${BRANCH}", url: "${GIT_REPO}"
-            // }
-        }
+        // stage('Checkout') { // se puede reemplazar configurando git en jenkins
+        //     steps {
+        //         git branch: "${BRANCH}", url: "${GIT_REPO}"
+        //     }
+        // }
         stage('Build') {
             steps {
                 script {
